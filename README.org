@@ -1,10 +1,10 @@
 * Fall 2021 235 Linked List Project
 
-* Last name:
+* Last name:Cheung
 
-* First name:
+* First name:Cheuk Lam
 
-* GitHub username:
+* GitHub username:ccheung62
 
 * Notes:
 
