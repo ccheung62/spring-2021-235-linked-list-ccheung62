@@ -114,6 +114,7 @@ TEST_CASE("List: Insert function - One Node"){
     CHECK(le->toString() == "x-->a-->nullptr");
 }
 // DList test cases
+//insert functions
 DList *dl = new DList();
 TEST_CASE("DList: Insert function"){
     dl->insert(0,"c");
@@ -150,6 +151,7 @@ TEST_CASE("DList: Insert function - going backward"){
     CHECK(dl->toString() == "head-->a<-->b<-->c<-->d<-->e<-->x<-->x<-->f<--tail");
 }
 
+//get functions
 TEST_CASE("DList: Get function"){
     CHECK(dl->get(3) == "d");
     CHECK(dl->get(5) == "x");
@@ -168,6 +170,7 @@ TEST_CASE("DList: Get function - edges"){
     CHECK(dl->get(7) == "f");
 }
 
+//remove functions
 TEST_CASE("DList: Removing function"){
     dl->remove(0);
     CHECK(dl->toString() == "head-->b<-->c<-->d<-->e<-->x<-->x<-->f<--tail");

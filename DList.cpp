@@ -9,6 +9,7 @@ DList::DList(){
     size = 0;
 }
 
+/* This function returns the entire list as a string */
 std::string DList::toString(){
     std::string result =  "head-->";
     Dnode *walker = head;
@@ -20,8 +21,9 @@ std::string DList::toString(){
     return result;
 }
 
+/* This function finds the closest entry point from head, cur, and tail 
+then moves a pointer Dnode until it reaches the specified location */
 Dnode *DList::searchForLoc(int l){
-    //finding the closest entry point
     int min = l-0;
     int start = 0;
     Dnode *walker = head;
@@ -48,6 +50,9 @@ Dnode *DList::searchForLoc(int l){
     return walker;
 }
 
+/*This function insert data into a new node at location loc. 
+SearchForLoc(int l) is used for optimization. 
+cur is pointed to the newly inserted node at the end. */
 void DList::insert(int loc, std::string data){
     //if they are inserting at the beginning 
     if (loc == 0){
@@ -88,6 +93,9 @@ void DList::insert(int loc, std::string data){
     curI = loc+1;
 }
 
+/*This function removes the node at loc from the list. 
+SearchForLoc(int l) is used for optimization. 
+cur is pointed to the node after the one removed.*/
 void DList::remove(int loc){
     //if out of bound
     if (loc >= size || loc < 0){
@@ -115,17 +123,22 @@ void DList::remove(int loc){
     else{
         walker->getPrev()->setNext(walker->getNext());
         walker->getNext()->setPrev(walker->getPrev());
-        cur = walker;
+        cur = walker->getNext();
         curI = loc;
     }
     size--;
 }
 
+/* This function returns the value at location loc. 
+SearchForLoc(int l) is used for optimization. 
+cur is pointed at the node specified */
 std::string DList::get(int loc){
     if (loc >= size || loc < 0){
         return "location specified is out of bound";
     }
     Dnode *walker = searchForLoc(loc);
+    cur = walker;
+    curI = loc;
     return walker->getData();
 }
 
